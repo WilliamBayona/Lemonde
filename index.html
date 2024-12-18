@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->        
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+
+    <body id="page-top">
+        <!-- Navigation-->
+<nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+    <!-- Removed bg-secondary class -->
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">LE MONDE PUBLICIDAD</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#cajas">Cajas</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#bolsas">Bolsas</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Nosotros</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center" style="background-image: url('assets/img/portfolio/Box86.jpg'); background-size: cover; background-position: center;">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Somos Fabricantes</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Ofrecemos empaques biodegradables de alta calidad, impresos a color en papel Earth Pact derivado de caña de azúcar. Fabricamos bolsas personalizables para café con válvulas desgasificadoras y sellos herméticos, así como cajas plegadizas para productos comestibles, con opciones de impresión a tu medida. Nuestros empaques combinan diseño, funcionalidad y sostenibilidad, siendo hasta un 70% biodegradables. Enviamos a todo el país con acabados plastificados mate o brillante.</p>
+            </div>
+        </header>
+        
+        
+
+
+
+         <!-- Portfolio Section 1 -->
+    <section class="page-section portfolio" id="cajas">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Cajas</h2>
+            <div class="divider-custom"></div>
+            <div id="portfolio-container-cajas"></div>
+        </div>
+    </section>
+
+    <div class="divider-custom"></div>
+
+    <!-- Portfolio Section 2 -->
+    <section class="page-section portfolio" id="bolsas">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Bolsas para Café</h2>
+            <div class="divider-custom"></div>
+            <div id="portfolio-container-bolsas"></div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="modal-title">Title</h2>
+                                <div class="divider-custom">
+                                </div>
+                                <img class="img-fluid rounded mb-5" id="modal-image" src="" alt="Portfolio Image" />
+                                <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <i class="fas fa-xmark fa-fw"></i>
+                                    Cerrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const createPortfolioSection = (containerId, images, sectionName) => {
+            const container = document.getElementById(containerId);
+    
+            // Generate rows of portfolio items
+            for (let i = 0; i < images.length; i += 3) {
+                let rowContent = `<div class="row mb-4">`;
+    
+                for (let j = i; j < i + 3 && j < images.length; j++) {
+                    rowContent += `
+                        <div class="col-md-6 col-lg-4">
+                            <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal" 
+                                data-title="${sectionName} ${j + 1}" 
+                                data-image="${images[j]}" 
+                                data-description="This is the description for ${sectionName} ${j + 1}">
+                                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div class="portfolio-item-caption-content text-center text-white">
+                                        <i class="fas fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img class="img-fluid" src="${images[j]}" alt="${sectionName} ${j + 1}" />
+                            </div>
+                        </div>`;
+                }
+    
+                rowContent += `</div>`;
+                container.innerHTML += rowContent;
+            }
+        };
+    
+        // Generate portfolio images
+        const imagesCajas = Array.from({ length: 21 }, (_, i) => `assets/img/portfolio/Box${i + 1}.jpg`);
+        const imagesBolsas = Array.from({ length: 42 }, (_, i) => `assets/img/portfolio/Box${i + 24}.jpg`);
+    
+        // Populate sections
+        createPortfolioSection("portfolio-container-cajas", imagesCajas, "Caja");
+        createPortfolioSection("portfolio-container-bolsas", imagesBolsas, "Bolsa");
+    
+        // Modal behavior
+        document.addEventListener("click", (event) => {
+            const portfolioItem = event.target.closest(".portfolio-item");
+            if (portfolioItem) {
+                const title = portfolioItem.getAttribute("data-title");
+                const image = portfolioItem.getAttribute("data-image");
+    
+                // Ensure modal data is correctly updated
+                document.getElementById("modal-title").textContent = title;
+                document.getElementById("modal-image").src = image;
+                document.getElementById("modal-image").alt = title;
+            }
+        });
+    </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        
+                
+        <!-- About Section-->
+        <section class="page-section bg-primary text-white mb-0" id="about">
+
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Nosotros</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class="col-lg-4 ms-auto"><p class="lead">Fabricamos bolsas biodegradables con válvula desgasificadora y sello Peel Still para preservar la frescura de tu café. Están elaboradas en papel Earth Pact derivado de caña de azúcar y pueden imprimirse a color en las cuatro caras. Con un empaque metalizado en PLA, logramos que nuestras bolsas sean un 70% biodegradables. Ofrecemos acabados plastificados mate o brillante, y pedidos desde 600 unidades, con envíos a todo el país.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Diseñamos y elaboramos cajas plegadizas para productos comestibles, con opciones de impresión personalizada o sin impresión según tus necesidades. Nuestras cajas destacan por su funcionalidad y presentación profesional, ideales para potenciar tu marca. Utilizamos materiales de alta calidad para garantizar un empaque resistente y sostenible, con soluciones adaptadas a tus requerimientos.</p></div>
+                </div>
+                <div class="text-center mt-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d248.57104406337925!2d-74.12477354455163!3d4.569445045015372!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sco!4v1734470335708!5m2!1sen!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+        </div>
+        </section>
+
+        <a href="https://api.whatsapp.com/send?phone=573214864062&text=Hola%21%20Quisiera%20una%20cotizaci%C3%B3n.%20" 
+        class="float" 
+        target="_blank">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="bi bi-whatsapp">
+             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+         </svg>
+     </a>
+
+
+    
+        <!-- Footer-->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Dirección</h4>
+                        <p class="lead mb-0">
+                            Dg 46 Bis Sur # 13M -18
+                            <br />
+                            Bogotá, Colombia
+                        </p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">Redes</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/p/Le-monde-publicidad-biodegradable-100054401624482/?locale=es_LA"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.paginasamarillas.com.co/empresas/lemonde-publicidad/bogota-15590800?ad=50279305"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">Contacto</h4>
+                        <p class="lead mb-0">
+                            lemondepublicidad@gmail.com
+<br>
+                            321 486 4062
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Le Monde Publicidad 2024</small></div>
+        </div>
+
+    </body>
+</html>
